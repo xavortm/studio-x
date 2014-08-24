@@ -1,0 +1,790 @@
+/*
+ * Theme Name: Studio-X
+ * Author: Alex Dimitrov
+ * Author URI: http://xavortm.com
+ * Description: Studio X is free WordPress theme directly focused on Typography and making the user feel great reading your articles. If you have any questions about it please, write in the support forums in WordPress.
+ * Version: 1.0.3
+ * License: GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Text Domain: studiox
+ * Domain Path: /languages/
+ * Tags: white, light, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post
+ * 
+ * This theme, like WordPress, is licensed under the GPL.
+ * Use it to make something cool, have fun, and share what you've learned with others.
+ * 
+ * Studio-X is based on Diamond - WordPress for developers by Alex Dimitrov
+ */
+
+
+/*
+ | Fonts included from Google
+ |
+ | All of the fonts are Open Source. This means that you are free to 
+ | share your favorites with friends and colleagues. You can even 
+ | customize them for your own use, or collaborate with the original
+ | designer to improve them. And you can use them in every way you
+ | want, privately or commercially — in print, on your computer, or
+ | in your websites.
+ | _________________________________________________________________ */
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700);
+
+/*
+ | Typography
+ | _________________________________________________________________ */
+
+body {
+	margin-bottom: 80px;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: #4fb509;
+	transition: 1s ease all;
+}
+
+a:hover {
+	color: #4fb509;
+	transition: 0.3s ease all;
+}
+
+a:active {
+	color: black;
+	transition: all 0;
+}
+
+::selection {
+	color: black;
+	background: #f2f2a7;
+}
+
+blockquote,
+address,
+q {
+	font-style: italic;
+	color: #999;
+}
+
+dl dt {
+	font-weight: bold;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #aaa;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+acronym { text-decoration: underline; }
+acronym:hover { cursor: help }
+
+button,
+input[type='reset'],
+input,
+textarea {
+	display: inline-block;
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+label {
+	font-size: 12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+button:hover,
+input:active,
+textarea:active {
+	border: 1px solid #009cff;
+	outline: none;
+}
+
+button:focus,
+input:focus,
+textarea:focus {
+	outline: none;
+	border: 1px solid #009cff;
+}
+
+textarea {
+	width: 100%;
+	line-height: 1.3em;
+	padding: 10px 15px;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3,
+.entry-content h4, 
+.entry-content h5,
+.entry-content h6 {
+	font-family: "Raleway extrabold", "Open Sans Bold";
+}
+
+.entry-content h6  {
+	text-transform: uppercase;
+}
+
+.entry-content li {
+	line-height: 1.5em;
+	padding: 5px 0;
+}
+
+/*
+ | Site sections
+ | _________________________________________________________________ */
+
+/* --------------------------
+ * HEADER 
+ * -------------------------- */
+
+#primary-navigation .navbar-collapse {
+	padding: 0;
+}
+
+#primary-navigation .navbar-nav > li > a {
+	padding: 15px 0;
+	margin-right: 30px;
+	font-family: "Raleway extrabold";
+	color: black;
+}
+
+#primary-navigation .navbar-nav > li > a:hover {
+	color: #888;
+}
+
+.dropdown-menu > li > a:hover, 
+.dropdown-menu > li > a:focus {
+	background: white;
+}
+
+.navbar-default .navbar-nav > .open > a,
+ .navbar-default .navbar-nav > .open > a:hover,
+ .navbar-default .navbar-nav > .open > a:focus {
+ 	background: white;
+ }
+
+#site-branding {
+	position: relative;
+	background: #4fb509;
+	color: white;
+	padding: 60px 0; 
+	z-index: 1;
+}
+
+#site-branding .site-title {
+	font-family: "Raleway ExtraBold";
+	font-size: 54px;
+	margin: 0;
+	line-height: 1em;
+}
+
+#site-branding .site-title a {
+	color: white;
+	text-decoration: none;
+}
+
+#site-branding .site-title a:hover {
+	color: white;
+	text-decoration: none;
+	padding-left: 10px;
+}
+
+#site-branding .site-description {
+	font-family: "Raleway Thin";
+	font-size: 29px;
+	margin: 0;
+	line-height: 1em;
+}
+
+#site-branding { position: relative; }
+
+img.header-background {
+	/* Set rules to fill background */
+	min-height: 100%;
+	max-height: 100%;
+	min-width: 1024px;
+
+	/* Set up proportionate scaling */
+	width: 100%;
+	height: auto;
+
+	/* Set up positioning */
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	/* Dont let it go above text  */
+	z-index: -1;
+}
+
+.navbar-default .navbar-collapse, 
+.navbar-default .navbar-form,
+.navbar-default {
+	background: white;
+}
+
+.navbar-default .navbar-toggle:hover, 
+.navbar-default .navbar-toggle:focus {
+	background: white;
+	border-color: #aaa;
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+	background: white;
+}
+
+.navbar {
+	border-radius: 0;
+}
+
+.menu-text {
+	float: left;
+	margin-top: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding-left: 5px;
+}
+
+#primary-navigation .searchform {
+	display: none;
+}
+
+#primary-navigation .navbar-nav > li.search-icon > a {
+	padding: 15px;
+	margin-right: 0;
+}
+
+#primary-navigation .searchform label,
+#primary-navigation .searchform input[type="submit"] {
+	display: none;
+}
+
+#primary-navigation .searchform input[type="text"] {
+	display: inline-block;
+	border: none;
+	box-shadow: none;
+	border-left: 1px solid #ddd;
+	padding-left: 20px;
+	border-radius: 0;
+}
+
+#primary-navigation .searchform input[type="text"]:active,
+#primary-navigation .searchform input[type="text"]:focus {
+	box-shadow: none;
+}
+
+/* --------------------------
+ * SITE TEMPLATES 
+ * -------------------------- */
+.content-wrapper {
+	max-width: 700px;
+	overflow: hidden;
+	/* Fixes missing pixel from the overflow */
+	padding-bottom: 2px;
+}
+
+.custom-background .content-wrapper {
+	padding: 20px 60px;
+	background: white;
+	box-sizing: initial;
+}
+.custom-background .site-footer {
+	background: white;
+}
+
+
+/* --------------------------
+ * ARTICLES AND COMMENTS
+ * -------------------------- */
+.entry {
+	padding-bottom: 0px;
+	padding-top: 30px;
+	margin-top: 5px;
+	border-bottom: 1px solid #f0f0f0;
+	border-top: 1px solid #f0f0f0;
+}
+
+/* Image that is wider then the content area. Looks cool :)  */
+.entry img.wide {
+	text-align: center;
+	margin-left: -128px;
+	max-width: 1024px;
+}
+
+.entry-thumbnail {
+	position: relative;
+	margin-top: 10px;
+}
+
+.entry-thumbnail img {
+	max-width: 100%;
+	height: auto;
+	transition: all 0.3s ease;
+}
+
+.entry-thumbnail img:hover {
+	opacity: 0.5;	
+	transition: all 0.3s ease;
+}
+
+.entry-thumbnail a:before {
+	content: "";
+	background: black;
+	height: 100%;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 0;
+	z-index: -1;
+}
+
+.entry .entry-readingtime {
+	display: inline-block;
+	font-family: "PT Serif", "Droid Serif Regular", Georgia;
+	color: #ccc;
+	font-style: italic;
+	margin-top: 15px;
+}
+
+.entry .reading-time {
+	font-weight: bold;
+	color: black;
+}
+
+.entry:first-child {
+	padding-top: 0;
+	margin-top: 0;
+	border-top: none;
+}
+
+.entry:last-child {
+	border-bottom: none;
+}
+
+.entry .entry-title {
+	font-family: "Raleway ExtraBold";
+	font-size: 45px;
+	line-height: 1.1em;
+	margin: 0;
+} 
+
+.single .entry .entry-title {
+	margin: 0;
+}
+
+.entry .entry-title a {
+	color: black;
+	transition: 1s ease all;
+}
+
+.entry .entry-title a:hover {
+	color: #4fb509;
+	transition: 0.3s ease all;
+	text-decoration: none;
+}
+
+.entry .entry-title a:active {
+	color: black;
+	transition: all 0;
+}
+
+.entry .entry-author {
+	font-weight: normal;
+	color: #999;
+	margin-bottom: 0;
+	display: inline;
+}
+
+.entry .entry-author a {
+	font-weight: bold;
+}
+
+.entry .entry-content {
+	font-family: "PT Serif";
+	font-size: 21px;
+	line-height: 1.9em;
+	color: #383838;
+	margin-bottom: 30px;
+}
+
+.entry .entry-content *:last-child {
+	margin-bottom: 0;
+}
+
+.entry .entry-footer .read-more {
+	border: 1px solid #ddd;
+	border-radius: 0;
+	padding: 13px 30px;
+	font-size: 18px;
+	color: black;
+	font-weight: bold;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.entry .entry-footer span {
+	font-size: 14px;
+}
+
+.entry .entry-footer .read-more:hover {
+	border: 1px solid #009cff;
+}
+
+.entry .entry-footer {
+	color: #b8b8b8;
+}
+
+.entry .entry-meta {
+	margin-bottom: 15px;
+}
+
+.entry .entry-meta .btn-group {
+	margin-top: 5px;
+}
+
+.entry .meta-date {
+	margin-left: 30px;
+	color: #b8b8b8;
+	font-weight: 600;
+}
+
+.entry .meta-tag-links {
+	margin-bottom: 10px;
+	display: block;
+}
+
+.entry .meta-category i,
+.entry .meta-tag-links i {
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.entry .meta-category span,
+.entry .meta-tag-links span {
+	margin-right: 5px;
+}
+
+.entry .meta-category a,
+.entry .meta-tag-links a {
+	color: black;
+}
+
+.entry .meta-author {
+	font-style: italic;
+	color: #999;
+	font-size: 16px;
+	margin-top: -20px;
+}
+
+.entry .meta-comments a {
+	color: #b8b8b8;
+}
+
+.entry .entry-footer {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.page-title {
+	
+}
+
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
+	color: #999;
+}
+
+.search-results a {
+	color: black;
+}
+
+.search-results a:hover {
+	background: white;
+}
+
+.search-results a:hover .date,
+.list-group a:hover .date {
+	color: #999;
+}
+
+.search-results a:active {
+	color: black;
+}
+
+.search-results .date,
+.list-group .date  {
+	color: #ccc;
+	text-transform: uppercase;
+	margin-right: 20px;
+	font-size: 10px;	
+	font-weight: bold;
+}
+
+.page-title .search {
+	max-width: 320px;
+	float: right;
+	margin-top: 15px;
+}
+
+#comments {
+	margin-bottom: -3px;
+}
+
+.comment {
+	padding-top: 30px;
+	margin-top: 30px;
+	border-top: 1px solid #f0f0f0;
+	line-height: 2em;
+}
+
+.comment-list > .comment:first-child {
+	margin-top: 0;
+}
+
+.comment > .comment-body:first-child {
+	margin-top: 0;
+	padding-bottom: 0px;
+}
+
+.comment-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.comment-list ol {
+	list-style :none ;
+}
+
+.comment-list ol .comment:last-child {
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+.comment-author.vcard .fn,
+.comment-author.vcard a {
+	font-size: 18px;
+	font-weight: bold;
+	color: black;
+	font-style: normal;
+	line-height: 1em;
+}
+
+.comment-author.vcard img {
+	float: left;
+	margin: 5px 20px 0 0;
+}
+
+.comment-meta.commentmetadata a {
+	color: #ccc;
+	font-size: 12px;
+}
+.comment-meta.commentmetadata {
+	line-height: 1em;
+}
+
+#submit {
+	padding: 10px 20px;
+}
+
+#respond {
+	background: #f0f0f0;
+	padding: 60px;
+	margin-top: 20px;
+}
+
+.tag-clould a {
+	display: inline;
+	padding: .2em .6em .3em;
+	font-size: 75%;
+	font-weight: bold;
+	line-height: 1;
+	color: #FFF;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+	color: #555;
+	border: 1px solid #CCC;
+}
+
+.tag-clould a:hover {
+	text-decoration: none;
+	color: #999;
+}
+
+.pager {
+	color: white;
+}
+
+.pager a {
+	color: black;
+}
+
+.pager li a {
+	max-width: 50%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* --------------------------
+ * WIDGETS
+ * -------------------------- */
+
+/* --------------------------
+ * FOOTER
+ * -------------------------- */
+.site-footer {
+	border-top: 1px solid #f0f0f0;
+	padding: 30px 0;
+
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 80px;
+}
+
+.codeispoetry {
+	background: url("img/codeispoetry.png") no-repeat top left;
+	text-indent: -9999px;
+	height: 15px;
+	width: 190px;
+	margin: 0;
+}
+
+.site-info { flaot: left; }
+.codeispoetry { float: right; }
+
+/*
+ | Helper classes
+ | _________________________________________________________________ */
+
+
+.label.label-white {
+	color: #555;
+	border: 1px solid #ccc;
+}
+
+.label.label-white a {
+	color: black;
+}
+
+.label.label-white a:hover {
+	text-decoration: none;
+	color: #999;
+}
+
+.label.label-white:active {
+	border: 1px solid #999;
+}
+
+.btn.btn-default:hover {
+	background: white;
+	border-color: #999;
+}
+
+.highlight {
+	background: #f2f2a7;
+	color: #666;
+}
+
+.list-group.black a {
+	color: black
+}
+
+.wp-caption {}
+.wp-caption-text {}
+.sticky {}
+.gallery-caption {}
+.bypostauthor {}
+.alignright { float: right; }
+.alignleft { float: left; }
+.aligncenter { text-align: center; margin: 0 auto; }
+
+/*
+ | Media Queries
+ | _________________________________________________________________ */
+
+@media(max-width:767px){
+
+	#site-branding {
+		padding: 30px 0;
+	}
+
+	#primary-navigation .navbar-collapse {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+
+	#primary-navigation .navbar-nav > li > a {
+		padding: 10px 20px;
+	}
+
+	#primary-navigation .navbar-nav > li > a:hover {
+		border: none;
+		margin: 0;
+		padding: 10px 20px;
+		color: #666;
+	}
+
+	#site-branding .site-description {
+		font-size: 18px;
+	}
+
+	.entry .entry-footer .read-more {
+		font-size: 16px;
+		padding: 7px 15px;
+	}
+
+	.entry .meta-date {
+		margin-left: 15px;
+	}
+
+	.site-footer {
+		text-align: center;
+	}
+
+	.site-info { flaot: none; }
+
+	.codeispoetry { 
+		float: none; 
+		margin: 30px auto;
+	}
+
+	.custom-background .content-wrapper {
+		padding: 20px 20px;
+		background: white;
+		box-sizing: initial;
+	}
+
+}
+
+@media(min-width:768px){
+	
+}
+
+@media(min-width:992px){
+	
+}
+
+@media(min-width:1200px){
+	
+}

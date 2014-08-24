@@ -1,0 +1,23 @@
+/*
+ * Support for some of the most often used plugins.
+ *
+ * Table of contents.
+ * 1. NextGen Gallery
+ */
+
+/* 1. NEXTGEN GALLERY
+ * ================================================ */
+.slideshowlink a {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: black;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.slideshowlink a:hover {
+	text-decoration: none;
+}
+
+.ngg-gallery-thumbnail img:hover {
+	background: white;
+}

@@ -1,0 +1,61 @@
+/* 
+ * Set your styles for the Editor in WordPress 
+ */
+@import url(http://fonts.googleapis.com/css?family=Raleway:800);
+
+body {
+	width: 700px;
+	margin: 0 auto;
+	font-size: 18px;
+	line-height: 2em;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+h1,
+h2,
+h3,
+h4, 
+h5,
+h6 {
+	font-family: "Raleway", "Open Sans Bold";
+}
+
+blockquote,
+address,
+q {
+	font-style: italic;
+	color: #999;
+}
+
+dl dt {
+	font-weight: bold;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	color: #aaa;
+	font-size: 14px;
+	text-transform: uppercase;
+}
+
+acronym { text-decoration: underline; }
+acronym:hover { cursor: help }
+
+button,
+input[type='reset'],
+input,
+textarea {
+	display: inline-block;
+	background: white;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 14px;
+	padding: 0 10px;
+}
+
+label {
+	font-size: 12px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
