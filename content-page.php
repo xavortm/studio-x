@@ -8,6 +8,8 @@
  *
  * @package WordPress
  */
+
+global $option_setting;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'entry' ); ?>>
@@ -19,13 +21,16 @@
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'studiox' ),
-				'after'  => '</div>',
-			) );
+			if ( $option_setting[ 'show-article-nav' ]) {
+				wp_link_pages( array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'studiox' ),
+					'after'  => '</div>',
+				) );
+			}
 		?>
 	</div><!-- .entry-content -->
 
+	<?php if ( $option_setting[ 'show-entry-footer' ]) : ?>
 	<footer class="entry-meta clearfix">
 		<div class="btn-group pull-right">
 			<a href="<?php echo get_edit_post_link( $id, $context ) ?>" class="edit-link btn btn-default" data-toggle="tooltip" data-placement="top" title="<?php _e( 'Edit this article', 'studiox' ); ?>"><i class='fa fa-edit'></i></a>
@@ -37,4 +42,5 @@
 			<a class="edit-link btn btn-default popover-dismiss" data-toggle="tooltip popover" data-placement="top" title="<?php _e( 'This articles shortlink', 'studiox' ); ?>" data-content="<?php echo wp_get_shortlink(); ?>"><i class='fa fa-chain'></i></a>
 		</div><!-- /btn-gtoup -->
 	</footer>
+	<?php endif; ?>
 </article><!-- #post-## -->

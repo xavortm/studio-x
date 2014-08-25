@@ -4,6 +4,13 @@
  *
  * @package WordPress
  */
+global $option_setting;
+
+// Decide what will be the comments layout
+$simple_comments = "default-comments";
+if ( $option_setting[ 'simple-comments' ] ) {
+	$simple_comments = "simple-comments";
+}
 
 /*
  * If the current post is protected by a password and the visitor has not yet
@@ -14,7 +21,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area <?php echo $simple_comments ?>">
 
 	<?php if ( have_comments() ) : ?>
 

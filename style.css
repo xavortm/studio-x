@@ -3,7 +3,7 @@
  * Author: Alex Dimitrov
  * Author URI: http://xavortm.com
  * Description: Studio X is free WordPress theme directly focused on Typography and making the user feel great reading your articles. If you have any questions about it please, write in the support forums in WordPress.
- * Version: 1.0.3
+ * Version: 1.1.0
  * License: GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: studiox
@@ -187,8 +187,15 @@ textarea {
 #site-branding .site-title {
 	font-family: "Raleway ExtraBold";
 	font-size: 54px;
-	margin: 0;
 	line-height: 1em;
+}
+
+#site-branding h1 {
+	margin: 0;
+}
+
+#site-branding .site-title.logo {
+	display: block;
 }
 
 #site-branding .site-title a {
@@ -234,6 +241,32 @@ img.header-background {
 .navbar-default .navbar-form,
 .navbar-default {
 	background: white;
+}
+
+.navbar-default.light {
+	background: white;
+}
+
+.navbar-default.dark {
+	background: #333;
+	border: #333;
+}
+
+.navbar-default.dark .navbar-collapse {
+	background: #333;
+}
+
+.navbar-default.dark .navbar-collapse .navbar-nav>.active>a {
+	background: #333;
+	color: white;
+}
+
+#primary-navigation.dark .navbar-nav a {
+	color: white;
+}
+
+#primary-navigation.dark .navbar-nav a:hover {
+	color: #333;
 }
 
 .navbar-default .navbar-toggle:hover, 
@@ -288,29 +321,10 @@ img.header-background {
 	box-shadow: none;
 }
 
-/* --------------------------
- * SITE TEMPLATES 
- * -------------------------- */
-.content-wrapper {
-	max-width: 700px;
-	overflow: hidden;
-	/* Fixes missing pixel from the overflow */
-	padding-bottom: 2px;
-}
 
-.custom-background .content-wrapper {
-	padding: 20px 60px;
-	background: white;
-	box-sizing: initial;
-}
-.custom-background .site-footer {
-	background: white;
-}
-
-
-/* --------------------------
- * ARTICLES AND COMMENTS
- * -------------------------- */
+ /*
+ | Blog
+ | _________________________________________________________________ */
 .entry {
 	padding-bottom: 0px;
 	padding-top: 30px;
@@ -357,8 +371,8 @@ img.header-background {
 	display: inline-block;
 	font-family: "PT Serif", "Droid Serif Regular", Georgia;
 	color: #ccc;
-	font-style: italic;
 	margin-top: 15px;
+	font-size: 16px;
 }
 
 .entry .reading-time {
@@ -433,7 +447,18 @@ img.header-background {
 	font-size: 18px;
 	color: black;
 	font-weight: bold;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	margin-right: 30px;
+}
+
+.entry .entry-footer .read-more.small {
+	padding: 0;
+	border: none;
+	font-size: 14px;
+}
+
+.entry .entry-footer .read-more.small:hover {
+	border: none;
+	padding: 0;
 }
 
 .entry .entry-footer span {
@@ -457,7 +482,6 @@ img.header-background {
 }
 
 .entry .meta-date {
-	margin-left: 30px;
 	color: #b8b8b8;
 	font-weight: 600;
 }
@@ -543,6 +567,10 @@ h6 small {
 	margin-top: 15px;
 }
 
+/*
+| Comments
+| _________________________________________________________________ */
+
 #comments {
 	margin-bottom: -3px;
 }
@@ -610,6 +638,117 @@ h6 small {
 	margin-top: 20px;
 }
 
+#comments.simple-comments {
+	margin-top: 60px;
+}
+
+#comments.simple-comments .comments-title span {
+	display: none;
+}
+
+#comments.simple-comments .comment-author img {
+	display: none;
+}
+
+#comments.simple-comments .children {
+	padding-left: 15px;
+	position: relative;
+}
+
+#comments.simple-comments .children { 
+	/*position: relative; */
+	padding-left: 15px;
+	margin-left: 15px;
+}
+#comments.simple-comments .children:before {
+	content: "\f148";
+	font-family: FontAwesome;
+	position: absolute;
+	left: -10px;
+	top: 20px;
+	display: block;
+	color: #ccc;
+
+	/* Flip the icon (mirror) */
+	-moz-transform: scale(-1, 1);
+	-webkit-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	-ms-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+}
+
+#comments.simple-comments li.comment {
+	padding: 0;
+	margin: 0;
+}
+
+#comments.simple-comments .comment-author.vcard .fn, 
+#comments.simple-comments .comment-author.vcard a {
+	font-size: 14px;
+}
+
+#comments.simple-comments .comment-author,
+#comments.simple-comments .comment-meta {
+	display: inline-block;
+	font-size: 16px;
+}
+
+#comments.simple-comments .comment-meta.commentmetadata a {
+	color: #888;
+	font-style: italic;
+	font-size: 14px;
+}
+
+#comments.simple-comments .comment {
+	position: relative;
+	border: none;
+	margin-bottom: 0;
+}
+
+#comments.simple-comments .comment:last-child {
+	padding-bottom: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+#comments.simple-comments .reply a {
+	color: transparent;
+	margin-top: -20px;
+	display: block;
+}
+
+#comments.simple-comments li.comment > .comment-body:hover .reply a {
+	color: black;
+}
+
+#comments.simple-comments .comment-body {
+	margin: 10px 0;
+}
+
+#comments.simple-comments .comment-body p {
+	margin: 0 0 20px 0;
+}
+#comments.simple-comments .comment-body p:last-child {
+	margin: 0;
+}
+
+#comments.simple-comments #respond {
+	background: #ffffff;
+	padding: 0;
+}
+
+#comments.simple-comments #respond .form-allowed-tags {
+	display: none;
+}
+#comments.simple-comments #respond .reply-title ,
+#comments.simple-comments #respond .logged-in-as {
+	display: inline-block;
+}
+
+#comments.simple-comments #respond .logged-in-as {
+	float: right;
+	margin-top: -40px;
+}
+
 .tag-clould a {
 	display: inline;
 	padding: .2em .6em .3em;
@@ -645,13 +784,13 @@ h6 small {
 	text-overflow: ellipsis;
 }
 
-/* --------------------------
- * WIDGETS
- * -------------------------- */
+ /*
+ | Widgets
+ | _________________________________________________________________ */
 
-/* --------------------------
- * FOOTER
- * -------------------------- */
+ /*
+ | Footer
+ | _________________________________________________________________ */
 .site-footer {
 	border-top: 1px solid #f0f0f0;
 	padding: 30px 0;
@@ -672,6 +811,49 @@ h6 small {
 
 .site-info { flaot: left; }
 .codeispoetry { float: right; }
+
+/*
+ | Custom Pages
+ | _________________________________________________________________ */
+.content-wrapper {
+	max-width: 700px;
+	overflow: hidden;
+	/* Fixes missing pixel from the overflow */
+	padding-bottom: 2px;
+}
+
+.custom-background .content-wrapper {
+	padding: 20px 60px;
+	background: white;
+	box-sizing: initial;
+}
+.custom-background .site-footer {
+	background: white;
+}
+
+body.page-template-page-minimal-php #site-header,
+body.page-template-page-minimal-php .site-footer,
+body.page-template-page-minimal-php .site-content > *:not(article) {
+	display: none
+}
+
+body.page-template-page-minimal-php .site-content .entry-thumbnail {
+	display: block;
+}
+
+body.page-template-page-minimal-php .entry {
+	border: none;
+}
+
+body.page-template-page-minimal-php .site-content {
+	margin-top: 100px;
+}
+
+.entry-thumbnail.fullwidth {
+	margin-top: 0;
+	width: 100%;
+	height: auto;
+}
 
 /*
  | Helper classes

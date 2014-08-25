@@ -4,6 +4,8 @@
  *
  * @package WordPress
  */
+
+global $option_setting;
 ?><!DOCTYPE html>
 <!--[if IE 7]>
 <html class="ie ie7" <?php language_attributes(); ?>>
@@ -34,15 +36,19 @@
 <body <?php body_class(); ?>>
 
 <header id="site-header">
-		<div id="site-branding">
-			<img src="<?php header_image(); ?>" class='header-background' height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
-			<div class="container">
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-				<p class="site-description"><?php echo esc_html( bloginfo( 'description' ) ); ?></p>
-			</div>
-		</div><!-- /site-branding -->
+		
+		<?php // Show the branding
+		if ( $option_setting[ 'show-header' ] ) {
 
-		<nav id="primary-navigation" class="navbar navbar-default" role="navigation">
+			if ( is_single() && $option_setting[ 'big-thumbnail' ] ) {
+				Diamond_Entry::post_thumbnail('', 'fullwidth entry-thumbnail');
+			} else {
+				get_template_part( 'templates/header-branding' ); 
+			}
+
+		} ?>
+
+		<nav id="primary-navigation" class="navbar navbar-default <?php echo $option_setting[ 'menu-color-scheme' ] ?>" role="navigation">
 			<div class="container">
 			<div class="menu-text visible-xs">Menu</div>
 
@@ -86,6 +92,16 @@
 			</div><!-- /container -->
 		</nav><!-- /navbar -->
 	</header><!-- /site-header -->
+
+	<?php // Check templates.
+
+		if ( is_page_template( 'page-minimal.php' )) {
+			if ( $option_setting[ 'minimal-fullwidth-thumb' ] ) {
+				Diamond_Entry::post_thumbnail('', 'fullwidth entry-thumbnail');
+			}
+		}
+
+	?>
 
 	<div class="container-fluid content-wrapper"> 
 		<div class="site-content">

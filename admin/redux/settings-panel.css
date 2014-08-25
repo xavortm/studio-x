@@ -1,0 +1,51 @@
+.admin-color-fresh #redux-header {
+	background: url("../../img/header-bg.png") #222;
+	border-color: transparent;
+}
+
+.admin-color-fresh #redux-header .display_header span {
+	color: white;
+}
+
+.redux-container #redux-intro-text {
+	background: white;
+	box-shadow: none;
+}
+
+.redux-container #info_bar {
+	background: #fff;
+	color: #888;
+}
+
+.redux-container {
+	background: #333;
+}
+
+.redux-sidebar .redux-group-menu li a {
+	color: white;
+	border-color: #444;
+}
+
+.admin-color-fresh .redux-sidebar .redux-group-menu li.active i, 
+.admin-color-fresh .redux-sidebar .redux-group-menu li.activeChild i {
+	color: #4FB509;
+}
+
+.redux-sidebar .redux-group-menu li a:hover {
+	background: #333;
+	color: #4FB509;
+}
+
+.admin-color-fresh .redux-sidebar .redux-group-menu li.active a:hover {
+	background: #fff;
+	color: #4FB509;
+}
+
+.redux-container .redux-group-tab h3 {
+	background: #4FB509;
+	padding: 10px 20px;
+	color: white;
+	border-radius: 5px;
+	text-transform: uppercase;
+	display: inline-block;
+}

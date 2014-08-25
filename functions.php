@@ -15,13 +15,15 @@
  */
 
 // Include the studiox Framework
-require_once( 'inc/Diamond_Main.php' );
+require get_template_directory() . '/inc/Diamond_Main.php';
 
 // Register all the widgets
-require_once( 'inc/widgets/main.php' );
+require get_template_directory() . '/inc/widgets/main.php';
 
 // Include bootstrap menu support
-require_once( 'inc/wp_bootstrap_navwalker.php' );
+require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
+require get_template_directory() . '/admin/redux/admin/admin-init.php';
+require get_template_directory() . '/admin/redux/options.php';
 
 if( ! class_exists( 'studiox' ) ) :
 class studiox {
@@ -37,7 +39,7 @@ class studiox {
 		$this->theme_setup();
 
 		// Register actions using add_actions() custom function.
-    	$this->add_actions();
+		$this->add_actions();
 
 	}
 
@@ -58,8 +60,8 @@ class studiox {
 		// setup, instead for all other actions during using of Subtle.
 		add_action( 'after_setup_theme', array( $this, 'theme_setup_core' ) );
 
-    	// Set content width for custom media information
-    	if ( ! isset( $content_width ) ) $content_width = 900;
+		// Set content width for custom media information
+		if ( ! isset( $content_width ) ) $content_width = 900;
 
 	}
 
@@ -127,6 +129,12 @@ class studiox {
 		// Register custom fonts used in the theme.
 		add_action('wp_print_styles', array( $this, 'load_fonts' ));
 
+		// Apply Font Awesome as icons font for the options pannel ("/options/") == $opt_name
+		add_action( 'redux/page/options/enqueue', array( $this, 'redux_fontawesome' ) );
+
+		// Custom options css
+		add_action( 'redux/page/options/enqueue', array( $this, 'options_css' ) );
+
 		// Post title filter.
 		add_filter( "wp_title", array( $this, "page_title" ) );
 
@@ -135,7 +143,6 @@ class studiox {
 
 		// Add read more link instead of [...]
 		add_filter( 'excerpt_more', array( $this, 'excerpt_more' ) );
-
 	}
 
 	/**
@@ -162,6 +169,9 @@ class studiox {
 
 		// Get the main stylesheet for the theme.
 		wp_enqueue_style( 'stylesheet', get_stylesheet_uri() );
+
+		// The settings Dynamic CSS from the Options Panel
+		wp_enqueue_style( 'options', get_template_directory_uri() . '/admin/redux/options.min.css', 99 );
 
 		// Include jQuery from WP Core
 		wp_enqueue_script( "jquery" );
@@ -275,6 +285,33 @@ class studiox {
 
 		// Print the final styles.
 		echo $output;
+	}
+
+	/**
+	 * Include Font Awesome insite Redux framework options pannel
+	 * 
+	 * @since v1.1.0
+	 */
+	function redux_fontawesome() {
+
+		// Remove elusive icon from the panel completely. (uncomment to remove them)
+		// wp_deregister_style( 'redux-elusive-icon' );
+		// wp_deregister_style( 'redux-elusive-icon-ie7' );
+
+		// Insert the font-awesome
+		wp_register_style( 'redux-font-awesome', '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', array(), time(), 'all' );  
+		wp_enqueue_style( 'redux-font-awesome' );
+
+	}
+
+	/**
+	 * Custom css for the options panel
+	 * 
+	 * @since v1.1.0
+	 */
+	function options_css() {
+		wp_register_style( 'redux-custom-css', get_template_directory_uri() . '/admin/redux/settings-panel.css', array( 'redux-css' ), time(), 'all' );  
+		wp_enqueue_style('redux-custom-css');
 	}
 }
 

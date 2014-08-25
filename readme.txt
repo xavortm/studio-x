@@ -41,6 +41,10 @@ Studio X uses Bootstrap nav walker
 GNU GENERAL PUBLIC LICENSE Version 2, June 1991
 https://github.com/twittem/wp-bootstrap-navwalker
 
+Studio X uses Redux Framework
+GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+http://reduxframework.com/
+
 -----------------------------------------------------------------
 
 codeispoetry.png

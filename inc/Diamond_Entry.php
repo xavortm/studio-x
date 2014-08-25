@@ -61,7 +61,7 @@ class Diamond_Entry {
 	 * @since  v1.0.0
 	 */
 	public static function comments_title() {
-		printf( _nx( 'One thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', get_comments_number(), 'comments title', 'studiox' ),
+		printf( _nx( 'One thought %2$s', '%1$s thoughts %2$s', get_comments_number(), 'comments title', 'studiox' ),
 				number_format_i18n( get_comments_number() ), '<span>' . get_the_title() . '</span>' );
 	}
 
@@ -74,22 +74,26 @@ class Diamond_Entry {
 	 * @param bool 		$nodefault 	Use or not default image when no thumnnail is set.
 	 * @since v1.0.0
 	 */
-	public static function post_thumbnail( $size = '', $nodefault = true ) {
+	public static function post_thumbnail( $size = '',  $class = 'thumbnail', $nodefault = true ) {
 
 		if( has_post_thumbnail() ) {
 
+			$thumbnail_attr = array(
+				'class' => $class,
+			);
+
 			if( isset( $size ) ) {
-				the_post_thumbnail( $size );
+				the_post_thumbnail( $size, $thumbnail_attr );
 				return;
 			}
 
 			// Check if the current page need large image.
 			if( is_single() OR is_page() ) {
-				the_post_thumbnail('medium'); 
+				the_post_thumbnail( 'medium', $thumbnail_attr ); 
 			}
 			else {
 				// Now for the small ones
-				the_post_thumbnail( 'medium' );
+				the_post_thumbnail( 'medium', $thumbnail_attr );
 			}
 
 		} // has_post_thumbnail
@@ -109,7 +113,7 @@ class Diamond_Entry {
 			$image_directory = get_template_directory_uri() . '/img/default_' . $size . '.png';
 
 			// Print the default post thumbnail
-			echo "<img src='{$image_directory}' />";
+			echo "<img class='{$class}' src='{$image_directory}' />";
 		}
 
 	}
